@@ -29,9 +29,13 @@ def union(a, b):
     global labels
     labels[find(a)] = find(b)
 
-# Generate a 2D site percolation sample
-# Returns a matrix containing cluster IDs
-# Size is linear size of sample, pbc_x and pbc_y are 1 if pbc are required in that direction and 0 otherwise
+# Generate a 2D site percolation sample on a square lattice with free boundary conditions.
+# Size is linear size of sample, occ is the occupancy probability for each site. 
+#
+# Returns a 1D matrix where each position in the matrix corresponds to a lattice site, indexed sequentially
+# from top left to bottom right. Positions 0:size-1 correspond to the top row of the sample, positions
+# 0,size,2*size...size*(size-1) correspond to the first column, etc. A value of 0 at a given location means the site
+# is unoccupied, while values > 0 indicate the ID of the cluster the lattice site belongs to.
 def get_2D_site_matrix(size, occ):
 	global labels
 	labels = [0]
@@ -83,9 +87,18 @@ def get_2D_site_matrix(size, occ):
 	return HK_Matrix
     
 
-# Generate a 2D bond percolation sample
-# Returns a matrix containing cluster IDs and the left and forward bond matrices
-# Size is linear size of sample, pbc_x and pbc_y are 1 if pbc are required in that direction and 0 otherwise
+# Generate a 2D bond percolation sample on a square lattice with free boundary conditions.
+# Returns HK_Matrix, left_Matrix, forward_Matrix.
+# Size is the linear size of the sample, occ is the occupancy probability for each bond.
+#
+# HK_Matrix gives information about the clusters in the sample. Each position in the matrix corresponds to a 
+# lattice site, indexed sequentially from top left to bottom right. Positions 0:size-1 correspond to the top row 
+# of the sample, positions 0,size,2*size...size*(size-1) correspond to the first column, etc. The value at each 
+# position gives the ID of the cluster the lattice site belongs to. 
+# left_Matrix and forward_Matrix contain information about the connectivity of each lattice site. The sites are 
+# indexed in the same way as HK_Matrix. A value of 1 in left_Matrix indicates that the bond between a site (with id 
+# i) and its left neighbor (with id i-1) is present, while 0 means the bond is unoccupied. Similarly, in 
+# forward_Matrix a value 1 means there is a bond between sites i and i-size, while 0 indicates there is no bond.
 def get_2D_bond_matrix(size, occ):
 	global labels
 	labels = [0]
