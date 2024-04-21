@@ -1,11 +1,11 @@
 '''
 Created by: Helen Ansell
-Last updated: 15 October 2023
+Last updated: 21 April 2024
 
 Requires: func_perc_samples.py and func_line_clusters.py
 
 Calculate the difference in cluster number count for the chosen tomography line type 
-(as defined in fig. 1 of Ansell, Frank and Kovacs, arXiv:2307.04260)
+(as defined in fig. 1 of Ansell, Frank and Kovacs, Phys. Rev. Res. 5, 043218 (2023))
 for site or bond percolation on a 2d square lattice.
 
 Returns the mean value of DeltaN, the contribution to the cluster number count after the area law has been canceled.
