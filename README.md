@@ -9,5 +9,5 @@ Python script to calculate the nonlinear contribution to the cluster number coun
 **func_line_clusters.py** contains functions called by the main script that determine the lattice sites along lines through the system at a given angle, and count the number of clusters along a given line segment.
 
 ### Cite as: 
-H. S. Ansell, S. J. Frank and I. A. Kovács, Cluster Tomography in Percolation, arXiv:2307.04260 (2023), [doi:10.48550/arXiv.2307.04260](https://doi.org/10.48550/arXiv.2307.04260).
+H. S. Ansell, S. J. Frank and I. A. Kovács, Cluster tomography in percolation, Phys. Rev. Res. 5, 043218 (2023), [doi:10.1103/PhysRevResearch.5.043218](https://doi.org/10.1103/PhysRevResearch.5.043218).
 
